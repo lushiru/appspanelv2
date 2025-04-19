@@ -13,10 +13,15 @@ export function DesempenoScreen() {
   const [desempenios, setDesempenios] = useState(null);
   const isVisible = useIsFocused();
   const navigation = useNavigation();
+  const [reload, setReload] = useState(false);
 
     useEffect(() => {
         if(isVisible) getDesempenios();                    
     }, [isVisible]);
+
+    useEffect(() => {
+        if(reload) getDesempenios();                    
+    }, [reload]);
 
     const getDesempenios = async () => {
       try {
@@ -36,7 +41,7 @@ export function DesempenoScreen() {
         <Text style={styles.titulo}>Lista</Text>
 
         { desempenios ? 
-        <DesempenoDataTable desempenios={desempenios} />
+        <DesempenoDataTable desempenios={desempenios} setReload={setReload} />
         : <Text>nada</Text>
         }
 

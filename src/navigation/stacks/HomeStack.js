@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen, ColaboradoresScreen, ColaboradoresCrearScreen, ColaboradoresEditarScreen,
-  DesempenoScreen, DesempenoCrearScreen, 
+  DesempenoScreen, DesempenoCrearScreen, DesempenoEditarScreen, 
  } from "../../screens/Home";
 import { screensName } from "../../utils";
 
@@ -15,7 +15,7 @@ export function HomeStack() {
       <Stack.Screen name={screensName.home.colaboradoresEditar} component={ColaboradoresEditarScreen} />
       <Stack.Screen name={screensName.home.desempeno} component={DesempenoScreen} />
       <Stack.Screen name={screensName.home.desempenoCrear} component={DesempenoCrearScreen} />
-      <Stack.Screen name={screensName.home.desempenoEditar} component={HomeScreen} />
+      <Stack.Screen name={screensName.home.desempenoEditar} component={DesempenoEditarScreen} />
     </Stack.Navigator>
   );
 }

@@ -5,7 +5,7 @@ import { storageCrtl } from "./storage";
 
 async function verColaboradores() {
     try {
-      const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORESVER}`;
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORES}`;
       const token = await storageCrtl.getToken();
   
       const paramsTemp = {      
@@ -26,7 +26,7 @@ async function verColaboradores() {
 
   async function crearColaborador(rut, nombres, apaterno, amaterno, direccion, telefono, correo, ciudad, sexo, nacionalidad, cargo) {
 
-    const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORCREAR}`;
+    const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORES}`;
     const token = await storageCrtl.getToken();
 
     try {
@@ -60,7 +60,7 @@ async function verColaboradores() {
 
   async function verUnColaborador(idColaborador) {
     try {
-      const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORVER}&id=${idColaborador}`;
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORES}&id=${idColaborador}`;
       const token = await storageCrtl.getToken();
   
       const paramsTemp = {      
@@ -81,7 +81,7 @@ async function verColaboradores() {
 
   async function updateColaborador(id, rut, nombres, apaterno, amaterno, direccion, telefono, correo, ciudad, sexo, nacionalidad, cargo) {
 
-    const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORUPDATE}`;
+    const url = `${ENV.API_URL}${ENV.ENDPOINTS.COLABORADORES}`;
     const token = await storageCrtl.getToken();
 
     try {

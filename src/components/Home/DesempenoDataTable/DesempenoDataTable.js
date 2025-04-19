@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import { ScrollView } from 'react-native';
+import { ScrollView, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { DataTable, Button } from 'react-native-paper';
+import { desempeniosCtrl } from "../../../api";
 import { screensName } from "../../../utils";
 import { styles } from "./DesempenoDataTable.styles";
 
 export function DesempenoDataTable(props) {
 
-    const { desempenios } = props;
+    const { desempenios, setReload } = props;
     const navigation = useNavigation();
 
   const [page, setPage] = useState(0);
@@ -28,8 +29,24 @@ export function DesempenoDataTable(props) {
   };
 
   const goToEliminar = (desempenoId) => {
-    console.log("eliminar");
+    Alert.alert('Eliminar', 'Esta seguro de eliminar ?', [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {text: 'OK', onPress: () => eliminando(desempenoId) },
+    ]);
  };
+
+  const eliminando = async (id) => {
+    try {
+      setReload(false);
+      await desempeniosCtrl.deleteDesempenioEvaluacion(id);
+      setReload(true);
+    }catch(error){
+      ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
+    }  
+  } 
 
     let nro=1;
 
