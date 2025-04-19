@@ -23,7 +23,32 @@ async function verDesempeniosEvaluacion() {
     }
   }
 
+  async function crearDesempenoEvaluarion(nombre) {
+
+    const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMPENOCREAREVALUACION}`;
+    const token = await storageCrtl.getToken();
+
+    try {
+              
+        const res = await axios.post(url, {
+            nombre
+        },{
+          headers: {
+            Authorization: token, 
+           "Content-Type": "application/x-www-form-urlencoded",
+          }
+        })
+
+        return res.data
+
+      } catch (error) {
+        console.error(error);
+      }
+    
+  }
+
 
   export const desempeniosCtrl = {
     verDesempeniosEvaluacion,
+    crearDesempenoEvaluarion,
   };
