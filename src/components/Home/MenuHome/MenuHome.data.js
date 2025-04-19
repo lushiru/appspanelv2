@@ -7,7 +7,7 @@ export const Menu = [
   },
   {
     title: "Gestion de personas",
-    screen: screensName.home.gestionpersonas,
+    screen: screensName.home.desempeno,
   },
   
 ];

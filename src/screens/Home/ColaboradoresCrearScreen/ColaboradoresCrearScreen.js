@@ -1,4 +1,4 @@
-import { View, ToastAndroid } from "react-native";
+import { View, Text, ToastAndroid } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { Layout } from "../../../layouts";
@@ -32,6 +32,7 @@ export function ColaboradoresCrearScreen() {
 
   return (
     <Layout.Basic>
+      <Text style={styles.titulo}>Colaboradores</Text>
       <View style={styles.container}>
         <TextInput
           label="Rut"

@@ -4,8 +4,10 @@ const home = {
     colaboradores: "colaboradores",
     colaboradoresCrear: "colaboradores-crear",
     colaboradoresEditar: "colaboradores-editar",
-    gestionpersonas: "gestionpersonas",
-    search: "search",
+    desempeno: "desempeno",
+    desempenoCrear: "desempeno-crear",
+    desempenoEditar: "desempeno-editar",
+    
   };
     
   const account = {
