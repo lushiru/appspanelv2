@@ -7,6 +7,7 @@ export const ENV = {
       CSRFTOKEN : "createcsrf",
       COLABORADORES : "colaboradores",
       DESEMPENO : "desempeno",
+      DESEMPENOEVALUACION : "desempenoevaluacion",
     },
     STORAGE: {
       TOKEN: "tokenspanel",

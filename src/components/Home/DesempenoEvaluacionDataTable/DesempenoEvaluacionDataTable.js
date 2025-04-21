@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { ScrollView, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { DataTable, Button } from 'react-native-paper';
-import { desempeniosCtrl } from "../../../api";
+import { desempeniosevaluacionCtrl } from "../../../api";
 import { screensName } from "../../../utils";
-import { styles } from "./DesempenoDataTable.styles";
+import { styles } from "./DesempenoEvaluacionDataTable.styles";
 
-export function DesempenoDataTable(props) {
+export function DesempenoEvaluacionDataTable(props) {
 
     const { desempenios, setReload } = props;
     const navigation = useNavigation();
@@ -25,12 +25,8 @@ export function DesempenoDataTable(props) {
   const to = Math.min((page + 1) * itemsPerPage, desempenios.length);
 
   const goToEditar = (desempenoId) => {
-     navigation.navigate(screensName.home.desempenoEditar, { desempenoId: desempenoId });
+     navigation.navigate(screensName.home.desempenoEvaluacionEditar, { desempenoId: desempenoId });
   };
-
-  const goToCategoria = (id,nombre) => {
-    navigation.navigate(screensName.home.desempenoEvaluacion, { id: id, nombre: nombre });
- };
 
   const goToEliminar = (desempenoId) => {
     Alert.alert('Eliminar', 'Esta seguro de eliminar ?', [
@@ -45,7 +41,7 @@ export function DesempenoDataTable(props) {
   const eliminando = async (id) => {
     try {
       setReload(false);
-      await desempeniosCtrl.deleteDesempenioEvaluacion(id);
+      await desempeniosevaluacionCtrl.deleteDesempenioEvaluacion(id);
       setReload(true);
     }catch(error){
       ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
@@ -60,19 +56,19 @@ export function DesempenoDataTable(props) {
         <ScrollView horizontal contentContainerStyle={{ flexDirection: 'column' }}>
             <DataTable.Header>
                 <DataTable.Title style={{ width: 30 }}>N°</DataTable.Title>
-                <DataTable.Title style={{ width: 400 }}>Evaluación</DataTable.Title>
+                <DataTable.Title style={{ width: 400 }}>Categoría de competencia</DataTable.Title>
+                <DataTable.Title style={{ width: 100 }}>Porcentaje</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Editar</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Eliminar</DataTable.Title>
-                <DataTable.Title style={{ width: 100 }}>Categoria</DataTable.Title>
             </DataTable.Header>
             
             {desempenios.slice(from, to).map((item) => (
                 <DataTable.Row style={{ flex: 1, width: '100%', height: 50 }} key={item.id}  >
                 <DataTable.Cell style={{ width: 30 }}>{`${nro++}`}</DataTable.Cell>    
                 <DataTable.Cell style={{ width: 400 }}>{item.nombre}</DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}>{item.porcentaje}</DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEditar(item.id)} style={styles.btnEdit}>Editar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEliminar(item.id)} style={styles.btnEdit}>Eliminar</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToCategoria(item.id,item.nombre)} style={styles.btnEdit}>Categoria</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

@@ -7,6 +7,9 @@ const home = {
     desempeno: "desempeno",
     desempenoCrear: "desempeno-crear",
     desempenoEditar: "desempeno-editar",
+    desempenoEvaluacion: "desempenoEvaluacion",
+    desempenoEvaluacionCrear: "desempenoEvaluacion-crear",
+    desempenoEvaluacionEditar: "desempenoEvaluacion-editar",
     
   };
     

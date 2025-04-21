@@ -5,3 +5,5 @@ export * from "./ColaboradoresEditarScreen";
 export * from "./DesempenoScreen";
 export * from "./DesempenoCrearScreen";
 export * from "./DesempenoEditarScreen";
+export * from "./DesempenoEvaluacionScreen";
+export * from "./DesempenoEvaluacionCrearScreen";
