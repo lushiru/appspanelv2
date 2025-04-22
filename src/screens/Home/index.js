@@ -9,3 +9,5 @@ export * from "./DesempenoEvaluacionScreen";
 export * from "./DesempenoEvaluacionCrearScreen";
 export * from "./DesempenoEvaluacionEditarScreen";
 export * from "./DesempenoEvaluacionSubScreen";
+export * from "./DesempenoEvaluacionSubCrearScreen";
+export * from "./DesempenoEvaluacionSubEditarScreen";

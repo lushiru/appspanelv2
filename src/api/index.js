@@ -4,3 +4,4 @@ export * from "./user";
 export * from "./colaboradores";
 export * from "./desempenios";
 export * from "./desempeniosevaluacion";
+export * from "./desempenosubcategoria";

@@ -8,6 +8,7 @@ export const ENV = {
       COLABORADORES : "colaboradores",
       DESEMPENO : "desempeno",
       DESEMPENOEVALUACION : "desempenoevaluacion",
+      DESEMPENOEVALUACIONSUB : "desempenoevaluacionsubcategoria",
     },
     STORAGE: {
       TOKEN: "tokenspanel",
