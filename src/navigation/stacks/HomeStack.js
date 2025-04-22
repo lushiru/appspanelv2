@@ -1,7 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { HomeScreen, ColaboradoresScreen, ColaboradoresCrearScreen, ColaboradoresEditarScreen,
   DesempenoScreen, DesempenoCrearScreen, DesempenoEditarScreen, 
-  DesempenoEvaluacionScreen, DesempenoEvaluacionCrearScreen, 
+  DesempenoEvaluacionScreen, DesempenoEvaluacionCrearScreen, DesempenoEvaluacionEditarScreen,
+
  } from "../../screens/Home";
 import { screensName } from "../../utils";
 
@@ -19,7 +20,10 @@ export function HomeStack() {
       <Stack.Screen name={screensName.home.desempenoEditar} component={DesempenoEditarScreen} />
       <Stack.Screen name={screensName.home.desempenoEvaluacion} component={DesempenoEvaluacionScreen} />
       <Stack.Screen name={screensName.home.desempenoEvaluacionCrear} component={DesempenoEvaluacionCrearScreen} />
-      <Stack.Screen name={screensName.home.desempenoEvaluacionEditar} component={DesempenoEvaluacionScreen} />
+      <Stack.Screen name={screensName.home.desempenoEvaluacionEditar} component={DesempenoEvaluacionEditarScreen} />
+      <Stack.Screen name={screensName.home.desempenoEvaluacionSub} component={DesempenoEvaluacionEditarScreen} />
+      <Stack.Screen name={screensName.home.desempenoEvaluacionSubCrear} component={DesempenoEvaluacionEditarScreen} />
+      <Stack.Screen name={screensName.home.desempenoEvaluacionSubEditar} component={DesempenoEvaluacionEditarScreen} />
     </Stack.Navigator>
   );
 }

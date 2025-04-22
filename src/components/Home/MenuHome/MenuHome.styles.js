@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#254ffd",
     padding: 12,
     borderRadius: 10,
+    color: "white",
   },
   titleLogoutItem: {
     fontWeight: "bold",

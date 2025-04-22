@@ -10,7 +10,9 @@ const home = {
     desempenoEvaluacion: "desempenoEvaluacion",
     desempenoEvaluacionCrear: "desempenoEvaluacion-crear",
     desempenoEvaluacionEditar: "desempenoEvaluacion-editar",
-    
+    desempenoEvaluacionSub: "desempenoEvaluacionSub",
+    desempenoEvaluacionSubCrear: "desempenoEvaluacionSub-crear",
+    desempenoEvaluacionSubEditar: "desempenoEvaluacionSub-editar",
   };
     
   const account = {

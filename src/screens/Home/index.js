@@ -7,3 +7,5 @@ export * from "./DesempenoCrearScreen";
 export * from "./DesempenoEditarScreen";
 export * from "./DesempenoEvaluacionScreen";
 export * from "./DesempenoEvaluacionCrearScreen";
+export * from "./DesempenoEvaluacionEditarScreen";
+export * from "./DesempenoEvaluacionSubScreen";

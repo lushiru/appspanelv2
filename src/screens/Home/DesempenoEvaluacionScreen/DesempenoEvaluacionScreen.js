@@ -51,7 +51,7 @@ export function DesempenoEvaluacionScreen(props) {
         <Text style={styles.titulo}>Lista</Text>
 
         { desempenios ? 
-        <DesempenoEvaluacionDataTable desempenios={desempenios} setReload={setReload} />
+        <DesempenoEvaluacionDataTable desempenios={desempenios} setReload={setReload} nombredes={nombredes} />
         : ""
         }
 

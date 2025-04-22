@@ -8,7 +8,7 @@ import { styles } from "./DesempenoEvaluacionDataTable.styles";
 
 export function DesempenoEvaluacionDataTable(props) {
 
-    const { desempenios, setReload } = props;
+    const { desempenios, setReload, nombredes } = props;
     const navigation = useNavigation();
 
   const [page, setPage] = useState(0);
@@ -24,9 +24,13 @@ export function DesempenoEvaluacionDataTable(props) {
   const from = page * itemsPerPage;
   const to = Math.min((page + 1) * itemsPerPage, desempenios.length);
 
-  const goToEditar = (desempenoId) => {
-     navigation.navigate(screensName.home.desempenoEvaluacionEditar, { desempenoId: desempenoId });
+  const goToEditar = (desempenoEvaluacionId) => {
+     navigation.navigate(screensName.home.desempenoEvaluacionEditar, { desempenoEvaluacionId: desempenoEvaluacionId, nombredes: nombredes });
   };
+
+  const goToSubcategoria = (desempenoEvaluacionId,nombre) => {
+    navigation.navigate(screensName.home.desempenoEvaluacionSub, { desempenoEvaluacionId: desempenoEvaluacionId, nombre: nombre });
+ };
 
   const goToEliminar = (desempenoId) => {
     Alert.alert('Eliminar', 'Esta seguro de eliminar ?', [
@@ -60,6 +64,7 @@ export function DesempenoEvaluacionDataTable(props) {
                 <DataTable.Title style={{ width: 100 }}>Porcentaje</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Editar</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Eliminar</DataTable.Title>
+                <DataTable.Title style={{ width: 200 }}>Subcategoría de Competencia</DataTable.Title>
             </DataTable.Header>
             
             {desempenios.slice(from, to).map((item) => (
@@ -69,6 +74,7 @@ export function DesempenoEvaluacionDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}>{item.porcentaje}</DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEditar(item.id)} style={styles.btnEdit}>Editar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEliminar(item.id)} style={styles.btnEdit}>Eliminar</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToSubcategoria(item.id,item.nombre)} style={styles.btnEdit}>Subcategoría</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 
