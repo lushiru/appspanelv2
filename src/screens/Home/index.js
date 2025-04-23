@@ -11,3 +11,6 @@ export * from "./DesempenoEvaluacionEditarScreen";
 export * from "./DesempenoEvaluacionSubScreen";
 export * from "./DesempenoEvaluacionSubCrearScreen";
 export * from "./DesempenoEvaluacionSubEditarScreen";
+export * from "./DesempenoEvaluacionConductaScreen";
+export * from "./DesempenoEvaluacionConductaCrearScreen";
+export * from "./DesempenoEvaluacionConductaEditarScreen";
