@@ -3,7 +3,7 @@ import { HomeScreen, ColaboradoresScreen, ColaboradoresCrearScreen, Colaboradore
   DesempenoScreen, DesempenoCrearScreen, DesempenoEditarScreen, 
   DesempenoEvaluacionScreen, DesempenoEvaluacionCrearScreen, DesempenoEvaluacionEditarScreen,
   DesempenoEvaluacionSubScreen, DesempenoEvaluacionSubCrearScreen, DesempenoEvaluacionSubEditarScreen,
-  DesempenoEvaluacionConductaScreen, DesempenoEvaluacionConductaCrearScreen
+  DesempenoEvaluacionConductaScreen, DesempenoEvaluacionConductaCrearScreen, DesempenoEvaluacionConductaEditarScreen
  } from "../../screens/Home";
 import { screensName } from "../../utils";
 
@@ -27,7 +27,7 @@ export function HomeStack() {
       <Stack.Screen name={screensName.home.desempenoEvaluacionSubEditar} component={DesempenoEvaluacionSubEditarScreen} />
       <Stack.Screen name={screensName.home.desempenoEvaluacionConducta} component={DesempenoEvaluacionConductaScreen} />
       <Stack.Screen name={screensName.home.desempenoEvaluacionConductaCrear} component={DesempenoEvaluacionConductaCrearScreen} />
-      <Stack.Screen name={screensName.home.desempenoEvaluacionConductaEditar} component={DesempenoEvaluacionSubScreen} />
+      <Stack.Screen name={screensName.home.desempenoEvaluacionConductaEditar} component={DesempenoEvaluacionConductaEditarScreen} />
     </Stack.Navigator>
   );
 }

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { View, Text, ToastAndroid } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
@@ -63,7 +64,7 @@ export function DesempenoEvaluacionConductaEditarScreen(props) {
           onPress={formik.handleSubmit}
           loading={formik.isSubmitting}
         >
-           Crear
+           Actualizar
         </Button>
       </View>
     </Layout.Basic>
