@@ -39,7 +39,7 @@ export function DesempenoEvaluacionConductaCrearScreen(props) {
       <Text style={styles.titulo}>{nombre}</Text>
       <View style={styles.container}>
         <TextInput
-          label="Tarea"
+          label="Conducta Observable"
           style={styles.input}
           onChangeText={(text) => formik.setFieldValue("tarea", text)}
           value={formik.values.tarea}
