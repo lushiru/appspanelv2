@@ -16,6 +16,8 @@ const home = {
     desempenoEvaluacionConducta: "desempenoEvaluacionConducta",
     desempenoEvaluacionConductaCrear: "desempenoEvaluacionConducta-crear",
     desempenoEvaluacionConductaEditar: "desempenoEvaluacionConducta-editar",
+    desempenoPorcentajeOptimo: "desempenoPorcentajeOptimo",
+    
   };
     
   const account = {

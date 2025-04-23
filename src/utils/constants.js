@@ -10,7 +10,10 @@ export const ENV = {
       DESEMPENOEVALUACION : "desempenoevaluacion",
       DESEMPENOEVALUACIONSUB : "desempenoevaluacionsubcategoria",
       DESEMPENOCONDUCTA : "desempenoconducta",
+      DESEMPENOPORCENTAJEOPTIMO : "desempenioporcentaje",
+      
     },
+    IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",
     STORAGE: {
       TOKEN: "tokenspanel",
     },

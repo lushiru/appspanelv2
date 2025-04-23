@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { ScrollView, Alert } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { DataTable, Button } from 'react-native-paper';
-import { desempeniosCtrl } from "../../../api";
-import { screensName } from "../../../utils";
+import { desempeniosCtrl, storageCrtl } from "../../../api";
+import { screensName, ENV } from "../../../utils";
 import { styles } from "./DesempenoDataTable.styles";
+import { openURL } from "expo-linking";
 
 export function DesempenoDataTable(props) {
 
@@ -31,6 +32,19 @@ export function DesempenoDataTable(props) {
   const goToCategoria = (id,nombre) => {
     navigation.navigate(screensName.home.desempenoEvaluacion, { id: id, nombre: nombre });
  };
+
+  const goToDefinir = (id,nombre) => {
+    navigation.navigate(screensName.home.desempenoPorcentajeOptimo, { id: id, nombre: nombre });
+  };
+
+  const goToImprimir = async (id,nombre) => {
+    
+      const token = await storageCrtl.getToken();
+      openURL(`${ENV.IMPRIMIR}imprimirevaluacionpdf2.php?id=${id}&nombretext=${nombre}&token=${token}`);
+
+  };
+
+
 
   const goToEliminar = (desempenoId) => {
     Alert.alert('Eliminar', 'Esta seguro de eliminar ?', [
@@ -64,6 +78,8 @@ export function DesempenoDataTable(props) {
                 <DataTable.Title style={{ width: 100 }}>Editar</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Eliminar</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Categoria</DataTable.Title>
+                <DataTable.Title style={{ width: 100 }}>Definir Porcentaje óptimo de Desempeño</DataTable.Title>
+                <DataTable.Title style={{ width: 100 }}>Imprimir Evaluación</DataTable.Title>
             </DataTable.Header>
             
             {desempenios.slice(from, to).map((item) => (
@@ -73,6 +89,8 @@ export function DesempenoDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEditar(item.id)} style={styles.btnEdit}>Editar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEliminar(item.id)} style={styles.btnEdit}>Eliminar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToCategoria(item.id,item.nombre)} style={styles.btnEdit}>Categoria</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToDefinir(item.id,item.nombre)} style={styles.btnEdit}>Definir Porcentaje</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToImprimir(item.id,item.nombre)} style={styles.btnEdit}>Imprimir Evaluación</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

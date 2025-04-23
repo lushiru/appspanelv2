@@ -6,3 +6,4 @@ export * from "./desempenios";
 export * from "./desempeniosevaluacion";
 export * from "./desempenosubcategoria";
 export * from "./desempenoconducta";
+export * from "./desempenoporcentaje";
