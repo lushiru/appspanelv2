@@ -11,5 +11,23 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10
   },
+
+  table_head: {
+    flexDirection: "row",
+    backgroundColor: "#3bcd6b",
+    padding: 10,
+    borderWidth: 1,    
+  },
+  table_sub: {
+    flexDirection: "row",
+    backgroundColor: "#71d9ee",
+    padding: 5,
+    
+  },
+  table_tar: {
+    flexDirection: "row",
+    borderColor: "#1f2020",
+    borderWidth: 1,
+  }
   
 });
