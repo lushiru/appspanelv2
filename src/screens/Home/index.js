@@ -15,3 +15,4 @@ export * from "./DesempenoEvaluacionConductaScreen";
 export * from "./DesempenoEvaluacionConductaCrearScreen";
 export * from "./DesempenoEvaluacionConductaEditarScreen";
 export * from "./DesempenoPorcentajeOptimoScreen";
+export * from "./DesempenoRegistrarEvaluacionScreen";

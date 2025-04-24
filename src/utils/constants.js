@@ -11,6 +11,7 @@ export const ENV = {
       DESEMPENOEVALUACIONSUB : "desempenoevaluacionsubcategoria",
       DESEMPENOCONDUCTA : "desempenoconducta",
       DESEMPENOPORCENTAJEOPTIMO : "desempenioporcentaje",
+      DESEMEMPENOREGISTRAR : "registrarrevaluacion",
       
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",

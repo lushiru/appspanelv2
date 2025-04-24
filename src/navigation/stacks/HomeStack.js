@@ -5,6 +5,7 @@ import { HomeScreen, ColaboradoresScreen, ColaboradoresCrearScreen, Colaboradore
   DesempenoEvaluacionSubScreen, DesempenoEvaluacionSubCrearScreen, DesempenoEvaluacionSubEditarScreen,
   DesempenoEvaluacionConductaScreen, DesempenoEvaluacionConductaCrearScreen, DesempenoEvaluacionConductaEditarScreen,
   DesempenoPorcentajeOptimoScreen,
+  DesempenoRegistrarEvaluacionScreen,
  } from "../../screens/Home";
 import { screensName } from "../../utils";
 
@@ -30,6 +31,7 @@ export function HomeStack() {
       <Stack.Screen name={screensName.home.desempenoEvaluacionConductaCrear} component={DesempenoEvaluacionConductaCrearScreen} />
       <Stack.Screen name={screensName.home.desempenoEvaluacionConductaEditar} component={DesempenoEvaluacionConductaEditarScreen} />
       <Stack.Screen name={screensName.home.desempenoPorcentajeOptimo} component={DesempenoPorcentajeOptimoScreen} />
+      <Stack.Screen name={screensName.home.desempenoRegistrarEvaluacion} component={DesempenoRegistrarEvaluacionScreen} />
     </Stack.Navigator>
   );
 }

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { ScrollView, Alert } from 'react-native';
+import { ScrollView, Alert, ToastAndroid } from 'react-native';
 import { useNavigation } from "@react-navigation/native";
 import { DataTable, Button } from 'react-native-paper';
-import { desempeniosCtrl, storageCrtl } from "../../../api";
+import { desempeniosCtrl, storageCrtl, desempeniosporcentajeCtrl } from "../../../api";
 import { screensName, ENV } from "../../../utils";
 import { styles } from "./DesempenoDataTable.styles";
 import { openURL } from "expo-linking";
@@ -44,6 +44,17 @@ export function DesempenoDataTable(props) {
 
   };
 
+  const goToEvaluacion = async (id,nombre) => {
+
+    const respor = await desempeniosporcentajeCtrl.verUnPorcentajeoptimo(id);
+    
+    if(respor.porcentaje==0){
+      ToastAndroid.show( "El Porcentaje óptimo de Desempeño no se ha creado o es 0" , ToastAndroid.LONG);
+    }else{
+      navigation.navigate(screensName.home.desempenoRegistrarEvaluacion, { id: id, nombre: nombre });
+    }
+
+  };
 
 
   const goToEliminar = (desempenoId) => {
@@ -80,6 +91,7 @@ export function DesempenoDataTable(props) {
                 <DataTable.Title style={{ width: 100 }}>Categoria</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Definir Porcentaje óptimo de Desempeño</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Imprimir Evaluación</DataTable.Title>
+                <DataTable.Title style={{ width: 100 }}>Registrar Evaluación</DataTable.Title>
             </DataTable.Header>
             
             {desempenios.slice(from, to).map((item) => (
@@ -91,6 +103,7 @@ export function DesempenoDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToCategoria(item.id,item.nombre)} style={styles.btnEdit}>Categoria</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToDefinir(item.id,item.nombre)} style={styles.btnEdit}>Definir Porcentaje</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToImprimir(item.id,item.nombre)} style={styles.btnEdit}>Imprimir Evaluación</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEvaluacion(item.id,item.nombre)} style={styles.btnEdit}>Registrar Evaluación</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

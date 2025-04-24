@@ -28,7 +28,7 @@ export function AuthProvider(props) {
   const login = async (token) => {
     try {
       const response = await userCtrl.getMe(token);
-      if(response.resultado=="sintoken"){
+      if(response.resultado=="tokenexpiro" || response.resultado=="noencontradonovertokenvalido"){
         setUser(null);  
       }else{setUser(response);}
       setLoading(false);
