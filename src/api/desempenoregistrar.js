@@ -45,7 +45,41 @@ async function verTrabajadores() {
     }
   }
 
+  async function guardarTareas(idpers, tareas) {
+
+    const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMEMPENOREGISTRAR}`;
+    const token = await storageCrtl.getToken();
+
+    const bodyFormData = new FormData();
+    let i=0;
+    tareas.forEach((item) => {
+        bodyFormData.append('valor['+i+']', item.valor);
+        bodyFormData.append('idtarea['+i+']', item.idtarea);
+        i++;
+    });
+
+    try {
+              
+        const res = await axios.post(url, {
+          idpers,
+          bodyFormData
+        },{
+          headers: {
+            Authorization: token, 
+           "Content-Type": "application/x-www-form-urlencoded",
+          }
+        })
+
+        return res.data
+
+      } catch (error) {
+        console.error(error);
+      }
+    
+  }
+
   export const desempeniosregistrarCtrl = {
     verTrabajadores,
     verEvaluacion,
+    guardarTareas,
   };

@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ToastAndroid, Text, View } from "react-native";
 import { Button } from 'react-native-paper';
-import { Picker } from '@react-native-picker/picker';
 import { Layout } from "../../../layouts";
 import { styles } from "./DesempenoRegistrarEvaluacionScreen.styles";
 import { screensName } from "../../../utils";
 import { desempeniosregistrarCtrl } from "../../../api";
+import { Picker } from '@react-native-picker/picker';
 import { useIsFocused, useNavigation } from "@react-navigation/native";
 import { DesempenoDataTable } from "../../../components/Home";
 
-const Item = Picker.Item;
+//const Item = Picker.Item;
 
 export function DesempenoRegistrarEvaluacionScreen(props) {
 
@@ -23,11 +23,13 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
   const [evaluar, setEvaluar] = useState(null);
   const [trabajadores, setTrabajadores] = useState(null);
   const [trabajador, setTrabajador] = useState(null);
+  const [trabajadornombre, setTrabajadornombre] = useState("");
   const isVisible = useIsFocused();
   const navigation = useNavigation();
   const [mostrarEvaluacion, setMostrarEvaluacion] = useState(false);
 
-  const [tareas, setTareas] = useState(null);
+  const tareas = useRef([]);
+  const [tarea, setTarea] = useState(null);
 
     useEffect(() => {
         if(isVisible){getDesempenios();}                     
@@ -63,52 +65,70 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
         }
       };
 
-    const seguiraEvaluacion = (trabaj) => {
+      const gotoGuardar = async () => {
+        try {
+          const response = await desempeniosregistrarCtrl.guardarTareas(trabajador,tareas.current);
+          console.log(response.resultado);
+                
+        } catch (error) {
+            ToastAndroid.show( "Error al obtener colaboradores" , ToastAndroid.SHORT);
+        }
+      };
+
+    const seguiraEvaluacion = async (trabaj) => {
 
         if(trabaj!=""){
-            cargarTareas();
+            await cargarTareas();
             setTrabajador(trabaj);
+
+            trabajadores.map((item)=>{
+                if(item.id == trabaj){
+                    setTrabajadornombre(`${item.nombres} ${item.apellidos1} ${item.apellidos2}`);
+                }
+            });         
+
         }
 
     }
 
-    const cargarTareas = () => {
+    const cargarTareas = async () => {
 
-        setTareas(null);
+        tareas.current = null;
 
         const array = [];
 
-        evaluar.forEach(element => {            
+        await evaluar?.forEach(element => {            
             element.arrsub?.forEach(element2 => {
                 element2.arrtar?.forEach(element3 => {
                             array.push({ idtarea : element3.id, valor: 0});
                         })
                 });
         });
-        setTareas(array);
+        tareas.current = array;
 
     }
 
-    const cambiarPorcentaje = (newvalor,id) =>{
+    const cambiarPorcentaje = (v, Idtarea) => {
 
-        if(tareas == null){
+        if(tareas.current == null){
             cargarTareas();
         }
-
-        const array = [];
-        tareas.forEach(element => {
-            if(element.idtarea == id){
-                array.push({ idtarea : id, valor: newvalor});
+        
+        const array = tareas.current.map(element => {
+            if(element.idtarea == Idtarea){
+                return { idtarea:Idtarea, valor:v };          
             }else{
-                array.push({ idtarea : element.idtarea, valor: element.valor});
+                return { idtarea:element.idtarea, valor:element.valor };
             }
         });
-        setTareas(array);
-        console.log(array);
+        tareas.current = array;
+        
     }
 
     const EscribirEvaluacion = () => {        
+     
         
+
         return (
                 <View key={Date.now()} style={styles.table}>
                 { evaluar.map((item,index1) => 
@@ -147,16 +167,17 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
                                                         <View key={"tar"+item3.id+index1+index2+index3} style={{width:"85%"}}>
                                                             <Text key={"tart"+item3.id+index1+index2+index3} style={{fontSize: 18}}>{item3.tarea}</Text>
                                                         </View>
-                                                        <View key={"tarpick"+item3.id+index1+index2+index3} style={{width:"15%"}}>
-                                                            <Picker style={{height: 50}} key={"tarp"+item3.id+index1+index2+index3}
-                                                                onValueChange={(v) => { cambiarPorcentaje(v, item3.id); } }
+                                                        <View key={"tart"+item3.id+index1+index2+index3} style={{width:"15%"}}>
+                                                            <Picker key={"tartp"+item3.id+index1+index2+index3}
+                                                                selectedValue={""}
+                                                                onValueChange={(v) => { cambiarPorcentaje(v, item3.id); }}
                                                                 >
-                                                                <Item label="Seleccione Puntaje" value="" enabled={false} />
-                                                                <Item label="0%" value="0" />    
-                                                                <Item label="25%" value="25" />
-                                                                <Item label="50%" value="50" />
-                                                                <Item label="75%" value="75" />
-                                                                <Item label="100%" value="100" />
+                                                                <Picker.Item key={"itn"+item3.id+index1+index2+index3} label="Seleccione Puntaje" value="" enabled={false} />
+                                                                <Picker.Item key={"itn0"+item3.id+index1+index2+index3} label="0%" value="0" />    
+                                                                <Picker.Item key={"itn25"+item3.id+index1+index2+index3} label="25%" value="25" />
+                                                                <Picker.Item key={"itn50"+item3.id+index1+index2+index3} label="50%" value="50" />
+                                                                <Picker.Item key={"itn75"+item3.id+index1+index2+index3} label="75%" value="75" />
+                                                                <Picker.Item key={"itn100"+item3.id+index1+index2+index3} label="100%" value="100" />
                                                             </Picker>
                                                         </View>
                                                     </View>)
@@ -176,13 +197,13 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
     <Layout.Basic>
         <Text style={styles.titulo}>{nombredes}</Text>
         {trabajadores ? 
-            <Picker
+            <Picker key={"pcolab"+Date.now()}
                 selectedValue={""}
                 onValueChange={(v)=> { seguiraEvaluacion(v); }}
                 >
-                <Item label="Seleccione Trabajador" value="" enabled={false} />  
+                <Picker.Item label="Seleccione Trabajador" value="" enabled={false} />  
                 {
-                    trabajadores.map((it) => { return <Item key={it.id} label={it.nombres + " " + it.apellidos1 + " " + it.apellidos2 } value={it.id} /> })
+                    trabajadores.map((it) => { return <Picker.Item key={"colab"+it.id} label={it.nombres + " " + it.apellidos1 + " " + it.apellidos2 } value={it.id} /> })
                 }
             </Picker>
 
@@ -190,7 +211,13 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
         }
         {
             mostrarEvaluacion && evaluar ? 
+                <>
+                    <Text>{trabajadornombre}</Text>
                     <EscribirEvaluacion />
+                    <Button mode="contained" onPress={() => gotoGuardar()} style={styles.btn}>
+                                Guardar Evaluacion
+                    </Button>
+                </>    
             : ""
         }
         
