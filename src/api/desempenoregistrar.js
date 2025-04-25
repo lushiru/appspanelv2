@@ -76,8 +76,52 @@ async function verTrabajadores() {
     
   }
 
+  async function getEvalucionindividuales(idpers,idnom) {
+    try {
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMEMPENOREGISTRAR}&idpers=${idpers}&idnom=${idnom}`;
+      const token = await storageCrtl.getToken();
+  
+      const paramsTemp = {      
+        headers: {
+          Authorization: token,          
+          },
+      };
+  
+      const response = await axios.get(url,paramsTemp);
+  
+      if (response.status !== 200) throw response;
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async function getmostrarevaluacionfecha(idperso,fecha2,iddeso) {
+    try {
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMEMPENOREGISTRAR}&idperso=${idperso}&fecha2=${fecha2}&iddeso=${iddeso}`;
+      const token = await storageCrtl.getToken();
+  
+      const paramsTemp = {      
+        headers: {
+          Authorization: token,          
+          },
+      };
+  
+      const response = await axios.get(url,paramsTemp);
+  
+      if (response.status !== 200) throw response;
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   export const desempeniosregistrarCtrl = {
     verTrabajadores,
     verEvaluacion,
     guardarTareas,
+    getEvalucionindividuales,
+    getmostrarevaluacionfecha,
   };

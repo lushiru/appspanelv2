@@ -18,6 +18,7 @@ const home = {
     desempenoEvaluacionConductaEditar: "desempenoEvaluacionConducta-editar",
     desempenoPorcentajeOptimo: "desempenoPorcentajeOptimo",
     desempenoRegistrarEvaluacion: "desempenoRegistrarEvaluacion",
+    desempenoReporteIndividual: "desempenoReporteIndividual",
   };
     
   const account = {
