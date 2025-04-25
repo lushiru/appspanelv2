@@ -3,11 +3,9 @@ import { ToastAndroid, Text, View } from "react-native";
 import { Button } from 'react-native-paper';
 import { Layout } from "../../../layouts";
 import { styles } from "./DesempenoRegistrarEvaluacionScreen.styles";
-import { screensName } from "../../../utils";
 import { desempeniosregistrarCtrl } from "../../../api";
 import { Picker } from '@react-native-picker/picker';
 import { useIsFocused, useNavigation } from "@react-navigation/native";
-import { DesempenoDataTable } from "../../../components/Home";
 
 //const Item = Picker.Item;
 
@@ -68,10 +66,9 @@ export function DesempenoRegistrarEvaluacionScreen(props) {
       const gotoGuardar = async () => {
         try {
           const response = await desempeniosregistrarCtrl.guardarTareas(trabajador,tareas.current);
-          console.log(response.resultado);
-                
+          navigation.goBack();                
         } catch (error) {
-            ToastAndroid.show( "Error al obtener colaboradores" , ToastAndroid.SHORT);
+            ToastAndroid.show( "Error = " + error , ToastAndroid.LONG);
         }
       };
 

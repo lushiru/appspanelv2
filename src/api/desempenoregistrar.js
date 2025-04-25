@@ -51,6 +51,7 @@ async function verTrabajadores() {
     const token = await storageCrtl.getToken();
 
     const bodyFormData = new FormData();
+    bodyFormData.append("idpers",idpers);
     let i=0;
     tareas.forEach((item) => {
         bodyFormData.append('valor['+i+']', item.valor);
@@ -60,13 +61,10 @@ async function verTrabajadores() {
 
     try {
               
-        const res = await axios.post(url, {
-          idpers,
-          bodyFormData
-        },{
+        const res = await axios.post(url,bodyFormData,{
           headers: {
-            Authorization: token, 
-           "Content-Type": "application/x-www-form-urlencoded",
+            Authorization: token,
+            'Content-Type': 'multipart/form-data'
           }
         })
 
