@@ -17,3 +17,4 @@ export * from "./DesempenoEvaluacionConductaEditarScreen";
 export * from "./DesempenoPorcentajeOptimoScreen";
 export * from "./DesempenoRegistrarEvaluacionScreen";
 export * from "./DesempenoReporteIndividualScreen";
+export * from "./DesempenoReporteGeneralScreen";
