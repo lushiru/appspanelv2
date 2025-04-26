@@ -22,10 +22,8 @@ export function DesempenoReporteGeneralScreen(props) {
       }, []);
 
     const getReporteGral = async () => {
-        console.log("ok");
         try{
         const response = await desempeniosregistrarCtrl.getreportegral(desempenoId);
-        console.log(response.arrr);
         setReporte(response.arrr);
         }catch(error){
             ToastAndroid.show( Error , ToastAndroid.SHORT);
@@ -33,7 +31,6 @@ export function DesempenoReporteGeneralScreen(props) {
     }  
     
     const handleBarPress = (item) => {
-        console.log('Pressed bar:', item);
         ToastAndroid.show( item.texto , ToastAndroid.SHORT);
       };
 
