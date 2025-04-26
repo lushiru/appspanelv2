@@ -80,6 +80,18 @@ export function DesempenoDataTable(props) {
 
   };
 
+  const goToReporteCategoria = async (id,nombre) => {
+
+    const respor = await desempeniosporcentajeCtrl.verUnPorcentajeoptimo(id);
+    
+    if(respor.porcentaje==0){
+      ToastAndroid.show( "El Porcentaje óptimo de Desempeño no se ha creado o es 0" , ToastAndroid.LONG);
+    }else{
+      navigation.navigate(screensName.home.desempenoReporteCategoria, { id: id, nombre: nombre });
+    }
+
+  };
+
 
   const goToEliminar = (desempenoId) => {
     Alert.alert('Eliminar', 'Esta seguro de eliminar ?', [
@@ -118,6 +130,7 @@ export function DesempenoDataTable(props) {
                 <DataTable.Title style={{ width: 100 }}>Registrar Evaluación</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Reporte Individual</DataTable.Title>
                 <DataTable.Title style={{ width: 100 }}>Reporte General</DataTable.Title>
+                <DataTable.Title style={{ width: 100 }}>Reporte Categoria</DataTable.Title>
             </DataTable.Header>
             
             {desempenios.slice(from, to).map((item) => (
@@ -132,6 +145,7 @@ export function DesempenoDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEvaluacion(item.id,item.nombre)} style={styles.btnEdit}>Registrar Evaluación</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToReporteindividual(item.id,item.nombre)} style={styles.btnEdit}>Reporte Individual</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToReporteGeneral(item.id,item.nombre)} style={styles.btnEdit}>Reporte General</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToReporteCategoria(item.id,item.nombre)} style={styles.btnEdit}>Reporte Categoria</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

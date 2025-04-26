@@ -139,6 +139,48 @@ async function verTrabajadores() {
     }
   }
 
+  async function getCategorias(idnomoo) {
+    try {
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMEMPENOREGISTRAR}&idnomoo=${idnomoo}`;
+      const token = await storageCrtl.getToken();
+  
+      const paramsTemp = {      
+        headers: {
+          Authorization: token,          
+          },
+      };
+  
+      const response = await axios.get(url,paramsTemp);
+  
+      if (response.status !== 200) throw response;
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async function getEvaluacionCategoria(idnomooo,iddesoo) {
+    try {
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMEMPENOREGISTRAR}&idnomooo=${idnomooo}&iddesoo=${iddesoo}`;
+      const token = await storageCrtl.getToken();
+  
+      const paramsTemp = {      
+        headers: {
+          Authorization: token,          
+          },
+      };
+  
+      const response = await axios.get(url,paramsTemp);
+  
+      if (response.status !== 200) throw response;
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
   export const desempeniosregistrarCtrl = {
     verTrabajadores,
     verEvaluacion,
@@ -146,4 +188,6 @@ async function verTrabajadores() {
     getEvalucionindividuales,
     getmostrarevaluacionfecha,
     getreportegral,
+    getCategorias,
+    getEvaluacionCategoria
   };

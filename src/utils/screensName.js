@@ -20,6 +20,7 @@ const home = {
     desempenoRegistrarEvaluacion: "desempenoRegistrarEvaluacion",
     desempenoReporteIndividual: "desempenoReporteIndividual",
     desempenoReporteGeneral: "desempenoReporteGeneral",
+    desempenoReporteCategoria: "desempenoReporteCategoria",
   };
     
   const account = {
