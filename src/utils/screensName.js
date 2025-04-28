@@ -22,6 +22,15 @@ const home = {
     desempenoReporteGeneral: "desempenoReporteGeneral",
     desempenoReporteCategoria: "desempenoReporteCategoria",
   };
+  
+  const homeplan = {
+    root: "homeplanRoot",
+    homeplan: "homeplan",
+    plansupervision: "plansupervision",
+    plansupervisionCrear: "plansupervision-crear",
+    plansupervisionEditar: "plansupervision-editar",
+
+  }
     
   const account = {
     root: "accountRoot",
@@ -31,5 +40,6 @@ const home = {
   export const screensName = {
     tab: "tabRoot",
     home,
+    homeplan,
     account,
   };
