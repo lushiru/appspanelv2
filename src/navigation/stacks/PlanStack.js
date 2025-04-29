@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PlanScreen, PlanSupervisionScreen, PlanSupervisionCrearScreen, PlanSupervisionEditarScreen } from "../../screens/Plan";
+import { VerdesempenoScreen } from "../../screens/Verdesempeno";
 import { screensName } from "../../utils";
 
 const Stack = createNativeStackNavigator();
@@ -11,6 +12,7 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.plansupervision} component={PlanSupervisionScreen} />
       <Stack.Screen name={screensName.homeplan.plansupervisionCrear} component={PlanSupervisionCrearScreen} />
       <Stack.Screen name={screensName.homeplan.plansupervisionEditar} component={PlanSupervisionEditarScreen} />
+      <Stack.Screen name={screensName.homeplan.verdesempenovergral} component={VerdesempenoScreen} />
     </Stack.Navigator>
   );
 }

@@ -13,6 +13,7 @@ export const ENV = {
       DESEMPENOPORCENTAJEOPTIMO : "desempenioporcentaje",
       DESEMEMPENOREGISTRAR : "registrarrevaluacion",
       PLANESSUPERVISION: "plansupervision",
+      VERDESEMPENOVER: "verdesempenovergral",
       
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",

@@ -29,7 +29,8 @@ const home = {
     plansupervision: "plansupervision",
     plansupervisionCrear: "plansupervision-crear",
     plansupervisionEditar: "plansupervision-editar",
-
+    verdesempenovergral: "verdesempenovergral",
+    
   }
     
   const account = {
