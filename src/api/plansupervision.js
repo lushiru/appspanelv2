@@ -55,9 +55,9 @@ async function verPlanes() {
     
   }
 
-  async function verUnDesempenioEvaluacion(desempenoId) {
+  async function verFiltrar(supervisar2) {
     try {
-      const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMPENO}&id=${desempenoId}`;
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.PLANESSUPERVISION}&supervisar2=${supervisar2}`;
       const token = await storageCrtl.getToken();
   
       const paramsTemp = {      
@@ -76,39 +76,46 @@ async function verPlanes() {
     }
   }
 
-  async function updateDesempenioEvaluacion(id, nombre) {
-
-    const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMPENO}`;
-    const token = await storageCrtl.getToken();
-
+  async function verUnPlan(idp) {
     try {
-              
-        const res = await axios.put(url, {
-          id,
-          nombre,
-        },{
-          headers: {
-            Authorization: token, 
-           "Content-Type": "application/x-www-form-urlencoded",
-          }
-        })
-
-        return res.data
-
-      } catch (error) {
-        console.error(error);
-      }
-    
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.PLANESSUPERVISION}&idp=${idp}`;
+      const token = await storageCrtl.getToken();
+  
+      const paramsTemp = {      
+        headers: {
+          Authorization: token,          
+          },
+      };
+  
+      const response = await axios.get(url,paramsTemp);
+  
+      if (response.status !== 200) throw response;
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
   }
 
-  async function deleteDesempenioEvaluacion(id) {
+  async function actualizarPlan(idp,actividadasup,supervisar,tarea,frecuencia,inicio,checklist,indicador,tipodereporte,observacion) {
 
-    const url = `${ENV.API_URL}${ENV.ENDPOINTS.DESEMPENO}&id=${id}`;
+    const url = `${ENV.API_URL}${ENV.ENDPOINTS.PLANESSUPERVISION}`;
     const token = await storageCrtl.getToken();
 
     try {
               
-        const res = await axios.delete(url,{
+        const res = await axios.post(url, {
+            idp,
+            actividadasup,
+            supervisar,
+            tarea,
+            frecuencia,
+            inicio,
+            checklist,
+            indicador,
+            tipodereporte,
+            observacion
+        },{
           headers: {
             Authorization: token, 
            "Content-Type": "application/x-www-form-urlencoded",
@@ -125,6 +132,9 @@ async function verPlanes() {
 
   export const plansupervisionCtrl = {
     verPlanes,
-    crearPlan
-
+    crearPlan,
+    verFiltrar,
+    verUnPlan,
+    actualizarPlan,
+    
   };

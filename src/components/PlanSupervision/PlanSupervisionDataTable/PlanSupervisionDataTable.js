@@ -23,8 +23,8 @@ export function PlanSupervisionDataTable(props) {
   const from = page * itemsPerPage;
   const to = Math.min((page + 1) * itemsPerPage, tareas.length);
 
-  const goToEditar = (colaboradorId) => {
-     navigation.navigate(screensName.home.colaboradoresEditar, { colaboradorId: colaboradorId });
+  const goToEditar = (idp) => {
+     navigation.navigate(screensName.homeplan.plansupervisionEditar, { idp: idp });
   };
 
     let nro=1;
