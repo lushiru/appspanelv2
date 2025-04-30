@@ -6,8 +6,12 @@ export const Menu = [
     screen: screensName.homeplan.plansupervision,
   },
   {
-    title: "Ver desempeño",
+    title: "Ver Desempeño",
     screen: screensName.homeplan.verdesempenovergral,
+  },
+  {
+    title: "Check List",
+    screen: screensName.homeplan.checklist,
   },
   
 ];

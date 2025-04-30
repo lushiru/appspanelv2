@@ -30,6 +30,9 @@ const home = {
     plansupervisionCrear: "plansupervision-crear",
     plansupervisionEditar: "plansupervision-editar",
     verdesempenovergral: "verdesempenovergral",
+    checklist: "checklist",
+    checklistCrear: "checklist-crear",
+    checklistEditar: "checklist-editar",
     
   }
     

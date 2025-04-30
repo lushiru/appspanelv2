@@ -9,3 +9,4 @@ export * from "./desempenoconducta";
 export * from "./desempenoporcentaje";
 export * from "./desempenoregistrar";
 export * from "./plansupervision";
+export * from "./checklist";

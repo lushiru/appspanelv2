@@ -14,6 +14,7 @@ export const ENV = {
       DESEMEMPENOREGISTRAR : "registrarrevaluacion",
       PLANESSUPERVISION: "plansupervision",
       VERDESEMPENOVER: "verdesempenovergral",
+      CHECKLIST : "checklist",
       
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",
