@@ -15,6 +15,7 @@ export const ENV = {
       PLANESSUPERVISION: "plansupervision",
       VERDESEMPENOVER: "verdesempenovergral",
       CHECKLIST : "checklist",
+      CKECKLISTITEM : "checklistitem",
       
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",

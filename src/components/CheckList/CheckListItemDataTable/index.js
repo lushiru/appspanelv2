@@ -1,2 +1,1 @@
-export * from "./CheckListDataTable";
 export * from "./CheckListItemDataTable";
