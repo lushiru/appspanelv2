@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { View, Text, ToastAndroid } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
@@ -47,7 +48,7 @@ export function CheckListItemEditarScreen(props) {
 
   return (
     <Layout.Basic>
-      <Text style={styles.titulo}>Crear Item</Text>
+      <Text style={styles.titulo}>Actualizar Item</Text>
       <View style={styles.container}>
         <TextInput
           label="Nombre Item"
@@ -62,7 +63,7 @@ export function CheckListItemEditarScreen(props) {
           onPress={formik.handleSubmit}
           loading={formik.isSubmitting}
         >
-           Crear Item
+           Actualizar Item
         </Button>
       </View>
     </Layout.Basic>

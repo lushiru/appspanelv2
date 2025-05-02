@@ -36,7 +36,9 @@ const home = {
     checklistitem: "checklistitem",
     checklistitemCrear: "checklistitem-crear",
     checklistitemEditar: "checklistitem-editar",
-    
+    checklistitemcontenido: "checklistitemcontenido",
+    checklistitemcontenidoCrear: "checklistitemcontenido-crear",
+    checklistitemcontenidoEditar: "checklistitemcontenido-editar",
   }
     
   const account = {

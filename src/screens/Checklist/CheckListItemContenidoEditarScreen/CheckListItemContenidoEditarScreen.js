@@ -1,14 +1,15 @@
+import { useEffect } from "react";
 import { View, Text, ToastAndroid } from "react-native";
 import { TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { Layout } from "../../../layouts";
 import { useFormik } from "formik";
-import { checklistitemCtrl } from "../../../api";
-import { initialValues, validationSchema } from "./CheckListItemCrearScreen.form";
-import { styles } from "./CheckListItemCrearScreen.styles";
+import { checklistitemcontenidoCtrl } from "../../../api";
+import { initialValues, validationSchema } from "./CheckListItemContenidoEditarScreen.form";
+import { styles } from "./CheckListItemContenidoEditarScreen.styles";
 
 
-export function CheckListItemCrearScreen(props) {
+export function CheckListItemContenidoEditarScreen(props) {
 
     const {
         route: { params },
@@ -18,6 +19,12 @@ export function CheckListItemCrearScreen(props) {
 
     const navigation = useNavigation();
 
+    useEffect(() => {
+            if (id) {
+              retriveItemContenido(id);
+            }
+          }, [id]);
+
     const formik = useFormik({
         initialValues: initialValues(),
         validationSchema: validationSchema(),
@@ -25,21 +32,26 @@ export function CheckListItemCrearScreen(props) {
         onSubmit: async (formValue) => {
           const { nombre } = formValue;
           try {
-            await checklistitemCtrl.crearChecklistitem(id,nombre);
+            await checklistitemcontenidoCtrl.updateCheckitemcontenido(id,nombre);
             navigation.goBack();
           } catch (error) {
             ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
           }
         },
       }); 
+
+      const retriveItemContenido = async (id) => {
+                  const response = await checklistitemcontenidoCtrl.verUnCheckitemcontenido(id);
+                  await formik.setFieldValue("nombre", response.arrversubitem.nombresubitem);             
+              };
       
 
   return (
     <Layout.Basic>
-      <Text style={styles.titulo}>Crear Item</Text>
+      <Text style={styles.titulo}>Actualizar Item Contenido</Text>
       <View style={styles.container}>
         <TextInput
-          label="Nombre Item"
+          label="Nombre Item Contenido"
           style={styles.input}
           onChangeText={(text) => formik.setFieldValue("nombre", text)}
           value={formik.values.nombre}
@@ -51,7 +63,7 @@ export function CheckListItemCrearScreen(props) {
           onPress={formik.handleSubmit}
           loading={formik.isSubmitting}
         >
-           Crear Item
+           Actualizar Item Contenido
         </Button>
       </View>
     </Layout.Basic>

@@ -16,7 +16,7 @@ export const ENV = {
       VERDESEMPENOVER: "verdesempenovergral",
       CHECKLIST : "checklist",
       CKECKLISTITEM : "checklistitem",
-      
+      CKECKLISTITEMCONTENIDO : "checklistitemcontenido",
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",
     STORAGE: {

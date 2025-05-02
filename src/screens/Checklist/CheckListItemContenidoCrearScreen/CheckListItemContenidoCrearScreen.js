@@ -3,12 +3,12 @@ import { TextInput, Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { Layout } from "../../../layouts";
 import { useFormik } from "formik";
-import { checklistitemCtrl } from "../../../api";
-import { initialValues, validationSchema } from "./CheckListItemCrearScreen.form";
-import { styles } from "./CheckListItemCrearScreen.styles";
+import { checklistitemcontenidoCtrl } from "../../../api";
+import { initialValues, validationSchema } from "./CheckListItemContenidoCrearScreen.form";
+import { styles } from "./CheckListItemContenidoCrearScreen.styles";
 
 
-export function CheckListItemCrearScreen(props) {
+export function CheckListItemContenidoCrearScreen(props) {
 
     const {
         route: { params },
@@ -25,7 +25,7 @@ export function CheckListItemCrearScreen(props) {
         onSubmit: async (formValue) => {
           const { nombre } = formValue;
           try {
-            await checklistitemCtrl.crearChecklistitem(id,nombre);
+            await checklistitemcontenidoCtrl.crearChecklistitemcontenido(id,nombre);
             navigation.goBack();
           } catch (error) {
             ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
@@ -36,10 +36,10 @@ export function CheckListItemCrearScreen(props) {
 
   return (
     <Layout.Basic>
-      <Text style={styles.titulo}>Crear Item</Text>
+      <Text style={styles.titulo}>Crear Contenido Item</Text>
       <View style={styles.container}>
         <TextInput
-          label="Nombre Item"
+          label="Nombre Contenido Item"
           style={styles.input}
           onChangeText={(text) => formik.setFieldValue("nombre", text)}
           value={formik.values.nombre}
@@ -51,7 +51,7 @@ export function CheckListItemCrearScreen(props) {
           onPress={formik.handleSubmit}
           loading={formik.isSubmitting}
         >
-           Crear Item
+           Crear Contenido Item
         </Button>
       </View>
     </Layout.Basic>

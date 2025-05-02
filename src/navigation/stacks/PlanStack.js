@@ -2,7 +2,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { PlanScreen, PlanSupervisionScreen, PlanSupervisionCrearScreen, PlanSupervisionEditarScreen } from "../../screens/Plan";
 import { VerdesempenoScreen } from "../../screens/Verdesempeno";
 import { ChecklistScreen, CheckListCrearScreen, CheckListEditarScreen,
-  CheckListItemScreen, CheckListItemCrearScreen, CheckListItemEditarScreen
+  CheckListItemScreen, CheckListItemCrearScreen, CheckListItemEditarScreen,
+  CheckListItemContenidoScreen, CheckListItemContenidoCrearScreen, CheckListItemContenidoEditarScreen
  } from "../../screens/Checklist";
 import { screensName } from "../../utils";
 
@@ -22,6 +23,9 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.checklistitem} component={CheckListItemScreen} />
       <Stack.Screen name={screensName.homeplan.checklistitemCrear} component={CheckListItemCrearScreen} />
       <Stack.Screen name={screensName.homeplan.checklistitemEditar} component={CheckListItemEditarScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistitemcontenido} component={CheckListItemContenidoScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistitemcontenidoCrear} component={CheckListItemContenidoCrearScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistitemcontenidoEditar} component={CheckListItemContenidoEditarScreen} />
     </Stack.Navigator>
   );
 }
