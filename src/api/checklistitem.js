@@ -3,9 +3,9 @@ import { ENV } from "../utils";
 import { storageCrtl } from "./storage";
 
 
-async function verChecksitem() {
+async function verChecksitem(id) {
     try {
-      const url = `${ENV.API_URL}${ENV.ENDPOINTS.CKECKLISTITEM}`;
+      const url = `${ENV.API_URL}${ENV.ENDPOINTS.CKECKLISTITEM}&id=${id}`;
       const token = await storageCrtl.getToken();
   
       const paramsTemp = {      

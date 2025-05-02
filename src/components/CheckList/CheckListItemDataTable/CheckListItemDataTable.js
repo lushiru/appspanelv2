@@ -4,9 +4,9 @@ import { useNavigation } from "@react-navigation/native";
 import { DataTable, Button } from 'react-native-paper';
 import { checklistitemCtrl } from "../../../api";
 import { screensName, ENV } from "../../../utils";
-import { styles } from "./CheckListDataTable.styles";
+import { styles } from "./CheckListItemDataTable.styles";
 
-export function CheckListDataTable(props) {
+export function CheckListItemDataTable(props) {
 
     const { checklistsitem, setReload  } = props;
     const navigation = useNavigation();
@@ -22,7 +22,7 @@ export function CheckListDataTable(props) {
   }, [itemsPerPage]);
 
   const from = page * itemsPerPage;
-  const to = Math.min((page + 1) * itemsPerPage, checklists.length);
+  const to = Math.min((page + 1) * itemsPerPage, checklistsitem.length);
 
   const goToEditar = (id) => {
      navigation.navigate(screensName.homeplan.checklistEditar, { id: id });

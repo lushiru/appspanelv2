@@ -25,7 +25,8 @@ export function CheckListItemCrearScreen(props) {
         onSubmit: async (formValue) => {
           const { nombre } = formValue;
           try {
-            await checklistitemCtrl.crearChecklistitem(id,nombre);
+            const response = await checklistitemCtrl.crearChecklistitem(id,nombre);
+            console.log(response.resultado);
             navigation.goBack();
           } catch (error) {
             ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
