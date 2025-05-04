@@ -12,3 +12,4 @@ export * from "./plansupervision";
 export * from "./checklist";
 export * from "./checklistitem";
 export * from "./checklistitemcontenido";
+export * from "./checklistaplicar";

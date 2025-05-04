@@ -39,6 +39,10 @@ const home = {
     checklistitemcontenido: "checklistitemcontenido",
     checklistitemcontenidoCrear: "checklistitemcontenido-crear",
     checklistitemcontenidoEditar: "checklistitemcontenido-editar",
+    checklistaplicar: "checklistaplicar",
+    checklistaplicarFechas: "checklistaplicar-fechas",
+    checklistaplicarMostrar: "checklistaplicar-mostrar",
+
   }
     
   const account = {

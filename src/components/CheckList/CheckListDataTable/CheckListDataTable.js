@@ -58,7 +58,15 @@ export function CheckListDataTable(props) {
       
     const goToVerItem = (id,nombrever) => {
       navigation.navigate(screensName.homeplan.checklistitem, { id: id, nombrever: nombrever });
-    };  
+    }; 
+    
+    const goToAplicar = (id,nombrever,tipo) => {
+      if(tipo == "Capacitacion" || tipo == "Proceso"){
+        ToastAndroid.show( "es " +tipo+ "no se puede aplicar aqui" , ToastAndroid.SHORT);
+      }else{
+        navigation.navigate(screensName.homeplan.checklistaplicar, { id: id, nombrever:nombrever });
+      }      
+    };
 
     let nro=1;
 
@@ -88,7 +96,7 @@ export function CheckListDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEditar(item.id)} style={styles.btnEdit}>Editar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEliminar(item.id,item.nombre)} style={styles.btnEdit}>Eliminar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToVerItem(item.id,item.nombre)} style={styles.btnEdit}>Ver Item</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToAplicar(item.id,item.nombre,item.tipo)} style={styles.btnEdit}>Aplicar</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

@@ -3,7 +3,8 @@ import { PlanScreen, PlanSupervisionScreen, PlanSupervisionCrearScreen, PlanSupe
 import { VerdesempenoScreen } from "../../screens/Verdesempeno";
 import { ChecklistScreen, CheckListCrearScreen, CheckListEditarScreen,
   CheckListItemScreen, CheckListItemCrearScreen, CheckListItemEditarScreen,
-  CheckListItemContenidoScreen, CheckListItemContenidoCrearScreen, CheckListItemContenidoEditarScreen
+  CheckListItemContenidoScreen, CheckListItemContenidoCrearScreen, CheckListItemContenidoEditarScreen,
+  CheckListAplicarScreen, 
  } from "../../screens/Checklist";
 import { screensName } from "../../utils";
 
@@ -26,6 +27,9 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.checklistitemcontenido} component={CheckListItemContenidoScreen} />
       <Stack.Screen name={screensName.homeplan.checklistitemcontenidoCrear} component={CheckListItemContenidoCrearScreen} />
       <Stack.Screen name={screensName.homeplan.checklistitemcontenidoEditar} component={CheckListItemContenidoEditarScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistaplicar} component={CheckListAplicarScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistaplicarFechas} component={CheckListItemContenidoCrearScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistaplicarMostrar} component={CheckListItemContenidoEditarScreen} />
     </Stack.Navigator>
   );
 }

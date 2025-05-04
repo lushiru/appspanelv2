@@ -96,9 +96,9 @@ export function PlanSupervisionCrearScreen() {
         { show ?       
         <DateTimePicker
             value={ new Date() }
-            timeZoneName="America/Santiago"
+            //timeZoneName="America/Santiago"
             onChange={obtenerDatos}
-            display="spinner"
+            //display="spinner"
             mode="date"
             /> : ""}
         <Text>Check List</Text>    

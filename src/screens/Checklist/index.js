@@ -7,3 +7,4 @@ export * from "./CheckListItemEditarScreen";
 export * from "./CheckListItemContenidoScreen";
 export * from "./CheckListItemContenidoCrearScreen";
 export * from "./CheckListItemContenidoEditarScreen";
+export * from "./CheckListAplicarScreen";
