@@ -67,7 +67,7 @@ export function CheckListEditarScreen(props) {
             <Item label="Tipo Verificación" value="" enabled={false} />  
             <Item label="Proceso" value="Proceso" />
             <Item label="Producto" value="Producto" />
-            <Item label="Persona" value="Persona" />
+            <Item label="Personas" value="Personas" />
             <Item label="Capacitacion" value="Capacitacion" />
         </Picker>
         <Button
