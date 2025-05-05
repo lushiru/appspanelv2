@@ -7,6 +7,7 @@ import { checklistaplicarCtrl } from "../../../api";
 import { Picker } from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "../../../hooks";
 
 const Item = Picker.Item;
 
@@ -23,6 +24,8 @@ export function CheckListAplicarScreen(props) {
       const [fecha, setFecha] = useState(null);
   const [evaluar, setEvaluar] = useState(null);
   const navigation = useNavigation();
+
+  const { user } = useAuth();
   
   const cumple = useRef([]);
   const observacion = useRef("");
@@ -143,7 +146,7 @@ export function CheckListAplicarScreen(props) {
                         <Text key={"viewprinvnombre"}>Nombre Inspector</Text>
                     </View>
                     <View key={"viewprinvnom"} style={{width:"30%"}}>
-                        <Text key={"viewprinvnombrei"}>pedro</Text>
+                        <Text key={"viewprinvnombrei"}>{user.usuario ? `${user.usuario}` : 'sin nombre'}</Text>
                     </View>
                     <View key={"viewprinf"} style={{width:"20%"}}>
                         <Text key={"viewprinfecha"}>{fecha ? fecha : "fecha"}</Text>

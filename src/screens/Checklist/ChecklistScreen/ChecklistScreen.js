@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ToastAndroid, Text } from "react-native";
+import { ToastAndroid, Text, View } from "react-native";
 import { Button } from 'react-native-paper';
 import { Layout } from "../../../layouts";
 import { styles } from "./ChecklistScreen.styles";
@@ -36,9 +36,14 @@ export function ChecklistScreen() {
     return (
       <Layout.Basic>
           <Text style={styles.titulo}>Check List</Text>
+          <View style={styles.contenedor} >
           <Button mode="contained" onPress={() => navigation.navigate(screensName.homeplan.checklistCrear)} style={styles.btn}>
               Crear  Lista de Verificación
           </Button>
+          <Button mode="contained" onPress={() => navigation.navigate(screensName.homeplan.checklistaplicarFechas)} style={styles.btn}>
+              Ver verificaciones
+          </Button>
+          </View>
           <Text style={styles.titulo}>Lista</Text>          
 
           { checklists ? 

@@ -4,7 +4,7 @@ import { VerdesempenoScreen } from "../../screens/Verdesempeno";
 import { ChecklistScreen, CheckListCrearScreen, CheckListEditarScreen,
   CheckListItemScreen, CheckListItemCrearScreen, CheckListItemEditarScreen,
   CheckListItemContenidoScreen, CheckListItemContenidoCrearScreen, CheckListItemContenidoEditarScreen,
-  CheckListAplicarScreen, 
+  CheckListAplicarScreen, CheckListFechasScreen, CheckListMostrarScreen 
  } from "../../screens/Checklist";
 import { screensName } from "../../utils";
 
@@ -28,8 +28,8 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.checklistitemcontenidoCrear} component={CheckListItemContenidoCrearScreen} />
       <Stack.Screen name={screensName.homeplan.checklistitemcontenidoEditar} component={CheckListItemContenidoEditarScreen} />
       <Stack.Screen name={screensName.homeplan.checklistaplicar} component={CheckListAplicarScreen} />
-      <Stack.Screen name={screensName.homeplan.checklistaplicarFechas} component={CheckListItemContenidoCrearScreen} />
-      <Stack.Screen name={screensName.homeplan.checklistaplicarMostrar} component={CheckListItemContenidoEditarScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistaplicarFechas} component={CheckListFechasScreen} />
+      <Stack.Screen name={screensName.homeplan.checklistaplicarMostrar} component={CheckListMostrarScreen} />
     </Stack.Navigator>
   );
 }
