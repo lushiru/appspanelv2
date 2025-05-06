@@ -13,5 +13,9 @@ export const Menu = [
     title: "Check List",
     screen: screensName.homeplan.checklist,
   },
+  {
+    title: "Mejoras",
+    screen: screensName.homeplan.mejoras,
+  },
   
 ];

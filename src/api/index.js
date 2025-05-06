@@ -13,3 +13,4 @@ export * from "./checklist";
 export * from "./checklistitem";
 export * from "./checklistitemcontenido";
 export * from "./checklistaplicar";
+export * from "./mejoras";

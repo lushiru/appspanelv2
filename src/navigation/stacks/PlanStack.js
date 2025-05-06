@@ -6,6 +6,9 @@ import { ChecklistScreen, CheckListCrearScreen, CheckListEditarScreen,
   CheckListItemContenidoScreen, CheckListItemContenidoCrearScreen, CheckListItemContenidoEditarScreen,
   CheckListAplicarScreen, CheckListFechasScreen, CheckListMostrarScreen 
  } from "../../screens/Checklist";
+import { MejorasScreen, MejorasCrearScreen, MejorasEditarScreen, 
+  MejorasTomarFotoScreen, 
+ } from "../../screens/Mejoras"; 
 import { screensName } from "../../utils";
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +33,11 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.checklistaplicar} component={CheckListAplicarScreen} />
       <Stack.Screen name={screensName.homeplan.checklistaplicarFechas} component={CheckListFechasScreen} />
       <Stack.Screen name={screensName.homeplan.checklistaplicarMostrar} component={CheckListMostrarScreen} />
+      <Stack.Screen name={screensName.homeplan.mejoras} component={MejorasScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasCrear} component={MejorasCrearScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasEditar} component={MejorasEditarScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasTomarfoto} component={MejorasTomarFotoScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasVerFotos} component={MejorasScreen} />
     </Stack.Navigator>
   );
 }

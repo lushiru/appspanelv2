@@ -42,7 +42,11 @@ const home = {
     checklistaplicar: "checklistaplicar",
     checklistaplicarFechas: "checklistaplicar-fechas",
     checklistaplicarMostrar: "checklistaplicar-mostrar",
-
+    mejoras: "mejoras",
+    mejorasCrear: "mejoras-crear",
+    mejorasEditar: "mejoras-editar",
+    mejorasTomarfoto: "mejoras-tomarfoto",
+    mejorasVerFotos: "mejoras-verfotos",
   }
     
   const account = {
