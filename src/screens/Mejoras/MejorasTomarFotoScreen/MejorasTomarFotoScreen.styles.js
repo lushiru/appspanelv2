@@ -6,8 +6,8 @@ export const styles = StyleSheet.create({
   },
   container3: {
     padding: 20,
-    width: 300,
-    height: 300
+    width: 250,
+    height: 250
   },
   titulo: {
     fontWeight:900,

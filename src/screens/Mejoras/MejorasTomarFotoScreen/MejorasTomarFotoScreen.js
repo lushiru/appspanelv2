@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ToastAndroid } from 'react-native'
 import { useRef, useState } from 'react'
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { Button } from "react-native-paper";
 import { styles } from './MejorasTomarFotoScreen.styles';
 import { Layout } from '../../../layouts';
+import { mejorasfotoCtrl } from '../../../api';
 
 export function MejorasTomarFotoScreen(props) {
 
@@ -48,13 +49,24 @@ export function MejorasTomarFotoScreen(props) {
     const takePicture = async () => {
         if (cameraRef.current) {
             try {
-                const foto = await cameraRef.current.takePictureAsync();
-                setPhoto(foto.uri);
+                const foto = await cameraRef.current.takePictureAsync({ quality: 0.4, base64: true });
+                setPhoto(foto.base64);
             } catch (error) {
-                console.error("Error al tomar la foto:", error);
+                ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
             }
         }
     };
+
+    const guardarFoto = async () => {
+      try{
+        const d = new Date();
+        await mejorasfotoCtrl.crearMejoraFoto(id,`foto_${d.getTime()}`,`data:image/jpeg;base64,${photo}`);
+        setPhoto(null);
+        ToastAndroid.show( "Foto Guardada " , ToastAndroid.SHORT);
+      } catch (error) {
+        ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
+      }  
+    }
 
   return (
     <Layout.Basic>
@@ -78,7 +90,17 @@ export function MejorasTomarFotoScreen(props) {
         </Button>  
 
     { photo ? 
-    <Image source={{ uri: photo }} style={{ width: 250, height: 250 }} />
+    <>
+    <Image source={{ uri: `data:image/jpeg;base64,${photo}` }} style={{ width: 200, height: 200 }} />
+
+    <Button
+            mode="contained"
+            style={styles.btnSubmit}
+            onPress={guardarFoto}
+        >
+            Guardar Foto
+        </Button> 
+    </>  
     : "" }
     </View>
     </Layout.Basic>

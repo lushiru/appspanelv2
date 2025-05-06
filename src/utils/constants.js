@@ -19,6 +19,7 @@ export const ENV = {
       CKECKLISTITEMCONTENIDO : "checklistitemcontenido",
       CKECKLISTAPLICAR : "checklistaplicar",
       MEJORAS : "mejoras",
+      MEJORASFOTOS : "mejorasfotos",
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",
     STORAGE: {
