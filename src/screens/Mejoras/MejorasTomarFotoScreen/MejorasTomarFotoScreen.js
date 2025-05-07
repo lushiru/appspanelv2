@@ -49,7 +49,7 @@ export function MejorasTomarFotoScreen(props) {
     const takePicture = async () => {
         if (cameraRef.current) {
             try {
-                const foto = await cameraRef.current.takePictureAsync({ quality: 0.4, base64: true });
+                const foto = await cameraRef.current.takePictureAsync({ quality: 0.3, base64: true });
                 setPhoto(foto.base64);
             } catch (error) {
                 ToastAndroid.show( "Error " + error , ToastAndroid.SHORT);
