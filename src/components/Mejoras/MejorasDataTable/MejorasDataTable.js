@@ -48,20 +48,20 @@ export function MejorasDataTable(props) {
         }  
       }
       
-      const goToTomarFotos = (id) => {
-          navigation.navigate(screensName.homeplan.mejorasTomarfoto, { id: id });
+      const goToTomarFotos = (id, nombre) => {
+          navigation.navigate(screensName.homeplan.mejorasTomarfoto, { id: id, nombre:nombre });
       };
 
-      const goToVerFotos = (id) => {
-            navigation.navigate(screensName.homeplan.mejorasEditar, { id: id });
+      const goToVerFotos = (id, nombre) => {
+            navigation.navigate(screensName.homeplan.mejorasVerFotos, { id: id, nombre: nombre });
         };
 
-      const goToCrearPlan = (id) => {
-            navigation.navigate(screensName.homeplan.mejorasEditar, { id: id });
+      const goToCrearPlan = (id, nombre, tipo) => {
+            navigation.navigate(screensName.homeplan.mejorasPlanCrear, { id: id, nombre: nombre, tipo: tipo });
         };
 
-      const goToSeguimiento = (id) => {
-          navigation.navigate(screensName.homeplan.mejorasEditar, { id: id });
+      const goToSeguimiento = (id, nombre) => {
+          navigation.navigate(screensName.homeplan.mejorasEditar, { id: id, nombre: nombre });
         };
 
     let nro=1;
@@ -93,10 +93,10 @@ export function MejorasDataTable(props) {
                 <DataTable.Cell style={{ width: 100 }}>{item.fecha}</DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEditar(item.id)} style={styles.btnEdit}>Editar</Button></DataTable.Cell>
                 <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToEliminar(item.id,item.iniciativa)} style={styles.btnEdit}>Eliminar</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToTomarFotos(item.id)} style={styles.btnEdit}>Tomar Fotos</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToVerFotos(item.id)} style={styles.btnEdit}>Ver Fotos</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToCrearPlan(item.id)} style={styles.btnEdit}>Crear Plan</Button></DataTable.Cell>
-                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToSeguimiento(item.id)} style={styles.btnEdit}>Seguimiento</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToTomarFotos(item.id,item.iniciativa)} style={styles.btnEdit}>Tomar Fotos</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToVerFotos(item.id,item.iniciativa)} style={styles.btnEdit}>Ver Fotos</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToCrearPlan(item.id,item.iniciativa,item.tipo)} style={styles.btnEdit}>Crear Plan</Button></DataTable.Cell>
+                <DataTable.Cell style={{ width: 100 }}><Button mode="contained" onPress={() => goToSeguimiento(item.id,item.iniciativa)} style={styles.btnEdit}>Seguimiento</Button></DataTable.Cell>
                 </DataTable.Row>
             ))}
 

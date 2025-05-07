@@ -7,7 +7,7 @@ import { ChecklistScreen, CheckListCrearScreen, CheckListEditarScreen,
   CheckListAplicarScreen, CheckListFechasScreen, CheckListMostrarScreen 
  } from "../../screens/Checklist";
 import { MejorasScreen, MejorasCrearScreen, MejorasEditarScreen, 
-  MejorasTomarFotoScreen, 
+  MejorasTomarFotoScreen, MejorasVerFotosScreen, MejorasPlanCrearScreen, 
  } from "../../screens/Mejoras"; 
 import { screensName } from "../../utils";
 
@@ -37,7 +37,8 @@ export function PlanStack() {
       <Stack.Screen name={screensName.homeplan.mejorasCrear} component={MejorasCrearScreen} />
       <Stack.Screen name={screensName.homeplan.mejorasEditar} component={MejorasEditarScreen} />
       <Stack.Screen name={screensName.homeplan.mejorasTomarfoto} component={MejorasTomarFotoScreen} />
-      <Stack.Screen name={screensName.homeplan.mejorasVerFotos} component={MejorasScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasVerFotos} component={MejorasVerFotosScreen} />
+      <Stack.Screen name={screensName.homeplan.mejorasPlanCrear} component={MejorasPlanCrearScreen} />
     </Stack.Navigator>
   );
 }

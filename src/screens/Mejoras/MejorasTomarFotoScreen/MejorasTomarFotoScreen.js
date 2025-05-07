@@ -12,7 +12,8 @@ export function MejorasTomarFotoScreen(props) {
         route: { params },
       } = props;
 
-      const id = params?.id;   
+      const id = params?.id;
+      const nombre = params?.nombre;   
 
       const [facing, setFacing] = useState('back');
       const [permission, requestPermission] = useCameraPermissions();
@@ -71,7 +72,7 @@ export function MejorasTomarFotoScreen(props) {
   return (
     <Layout.Basic>
     <View>
-      <Text>MejorasTomarFotoScreen</Text>
+      <Text style={styles.titulo}>{nombre}</Text>
       <View style={styles.container3}>  
       <CameraView style={styles.camera} facing={facing} ref={cameraRef}>
         <View style={styles.buttonContainer}>

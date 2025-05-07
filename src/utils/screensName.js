@@ -47,6 +47,7 @@ const home = {
     mejorasEditar: "mejoras-editar",
     mejorasTomarfoto: "mejoras-tomarfoto",
     mejorasVerFotos: "mejoras-verfotos",
+    mejorasPlanCrear: "mejorasplan-crear",
   }
     
   const account = {
