@@ -61,7 +61,7 @@ export function MejorasDataTable(props) {
         };
 
       const goToSeguimiento = (id, nombre) => {
-          navigation.navigate(screensName.homeplan.mejorasEditar, { id: id, nombre: nombre });
+          navigation.navigate(screensName.homeplan.mejorasPlanSeguimiento, { id: id, nombre: nombre });
         };
 
     let nro=1;

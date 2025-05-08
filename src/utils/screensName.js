@@ -48,6 +48,8 @@ const home = {
     mejorasTomarfoto: "mejoras-tomarfoto",
     mejorasVerFotos: "mejoras-verfotos",
     mejorasPlanCrear: "mejorasplan-crear",
+    mejorasPlanSeguimiento: "mejorasplan-seguimiento",
+    mejorasPlanEditar: "mejorasplan-editar",
   }
     
   const account = {
