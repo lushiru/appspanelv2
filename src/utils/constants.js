@@ -21,6 +21,8 @@ export const ENV = {
       MEJORAS : "mejoras",
       MEJORASFOTOS : "mejorasfotos",
       MEJORASPLAN : "mejorasplan",
+      CAPACITACION : "capacitacion",
+      CAPACITACIONIMP : "capacitacionimprimir",
     },
     IMPRIMIR:"https://spanel.cl/spanel/api/imprimir/",
     STORAGE: {

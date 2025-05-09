@@ -50,6 +50,9 @@ const home = {
     mejorasPlanCrear: "mejorasplan-crear",
     mejorasPlanSeguimiento: "mejorasplan-seguimiento",
     mejorasPlanEditar: "mejorasplan-editar",
+    capacitacion: "capacitacion",
+    capacitacionCrear: "capacitacion-crear",
+    capacitacionEditar: "capacitacion-editar",
   }
     
   const account = {

@@ -17,5 +17,9 @@ export const Menu = [
     title: "Mejoras",
     screen: screensName.homeplan.mejoras,
   },
+  {
+    title: "Capacitación",
+    screen: screensName.homeplan.capacitacion,
+  },
   
 ];

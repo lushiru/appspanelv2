@@ -16,3 +16,4 @@ export * from "./checklistaplicar";
 export * from "./mejoras";
 export * from "./mejorasfoto";
 export * from "./mejorasplan";
+export * from "./capacitacion";
